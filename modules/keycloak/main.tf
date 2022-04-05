@@ -68,6 +68,7 @@ module "alb" {
   target_group_target_type                = "ip"
   vpc_id                                  = var.vpc_id
   stickiness                              = var.stickiness
+  enable_glacier_transition               = false
 }
 
 resource "aws_route53_record" "alb" {

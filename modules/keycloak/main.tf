@@ -46,17 +46,30 @@ resource "aws_ssm_parameter" "keycloak_password" {
 ######################################################################
 
 module "alb" {
-  source                                  = "git::https://github.com/teamautologg/terraform-aws-lb-s3-bucket"
+  source                                  = "git::https://github.com/teamautologg/terraform-aws-alb"
   alb_access_logs_s3_bucket_force_destroy = var.alb_destroy_log_bucket
   attributes                              = ["alb"]
   certificate_arn                         = var.alb_certificate_arn
   deletion_protection_enabled             = var.deletion_protection
+  health_check_interval                   = 60
+  health_check_path                       = "/auth"
+  health_check_timeout                    = 10
+  http_ingress_cidr_blocks                = var.http_ingress_cidr_blocks
+  http_redirect                           = var.http_redirect
+  https_enabled                           = true
+  https_ingress_cidr_blocks               = var.https_ingress_cidr_blocks
+  internal                                = var.internal
   lifecycle_rule_enabled                  = true
   name                                    = module.label.id
+  subnet_ids                              = var.internal ? var.private_subnet_ids : var.public_subnet_ids
   tags                                    = module.label.tags
+  target_group_name                       = substr(module.label.id, 0, 31)
   target_group_port                       = var.container_port
-  
+  target_group_target_type                = "ip"
+  vpc_id                                  = var.vpc_id
+  stickiness                              = var.stickiness
   enable_glacier_transition               = false
+
 }
 
 resource "aws_route53_record" "alb" {

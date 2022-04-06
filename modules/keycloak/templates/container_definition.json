@@ -81,8 +81,6 @@
           "value": "${keycloak_password}"
       }
     ],
-    "secrets": [
-    ],
     "memory": ${container_memory_limit},
     "memoryReservation": ${container_memory_reserved},
     "stopTimeout": 20,

@@ -116,7 +116,6 @@ module "ecr" {
 }
 
 resource "aws_vpc_endpoint" "cloudwatch_logs" {
-  count               = var.internal ? 1 : 0
   auto_accept         = true
   private_dns_enabled = true
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
@@ -128,7 +127,6 @@ resource "aws_vpc_endpoint" "cloudwatch_logs" {
 }
 
 resource "aws_vpc_endpoint" "ecr_api" {
-  count               = var.internal ? 1 : 0
   auto_accept         = true
   private_dns_enabled = true
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
@@ -140,7 +138,6 @@ resource "aws_vpc_endpoint" "ecr_api" {
 }
 
 resource "aws_vpc_endpoint" "ecr_dkr" {
-  count               = var.internal ? 1 : 0
   auto_accept         = true
   private_dns_enabled = true
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
@@ -152,7 +149,6 @@ resource "aws_vpc_endpoint" "ecr_dkr" {
 }
 
 resource "aws_vpc_endpoint" "s3" {
-  count           = var.internal ? 1 : 0
   auto_accept     = true
   route_table_ids = var.route_table_ids
   service_name    = "com.amazonaws.${var.region}.s3"
@@ -161,7 +157,6 @@ resource "aws_vpc_endpoint" "s3" {
 }
 
 resource "aws_vpc_endpoint" "ssm" {
-  count               = var.internal ? 1 : 0
   auto_accept         = true
   private_dns_enabled = true
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
@@ -174,7 +169,6 @@ resource "aws_vpc_endpoint" "ssm" {
 
 
 resource "aws_vpc_endpoint" "secretsmanager" {
-  count               = var.internal ? 1 : 0
   auto_accept         = true
   private_dns_enabled = true
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
@@ -186,7 +180,6 @@ resource "aws_vpc_endpoint" "secretsmanager" {
 }
 
 resource "aws_vpc_endpoint" "ssm_messages" {
-  count               = var.internal ? 1 : 0
   auto_accept         = true
   private_dns_enabled = true
   security_group_ids  = [aws_security_group.vpc_endpoints.id]

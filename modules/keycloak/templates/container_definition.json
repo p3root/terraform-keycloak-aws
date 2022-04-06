@@ -71,17 +71,17 @@
       {
           "name": "ROOT_LOGLEVEL",
           "value": "INFO"
+      },
+      {
+          "name": "DB_PASSWORD",
+          "value": "${db_password}"
+      },
+      {
+          "name": "KEYCLOAK_PASSWORD",
+          "value": "${keycloak_password}"
       }
     ],
     "secrets": [
-      {
-        "name": "DB_PASSWORD",
-        "valueFrom": "arn:aws:ssm:${region}:${aws_account_id}:parameter/${name}/${environment}/DB_PASSWORD"
-      },
-      {
-        "name": "KEYCLOAK_PASSWORD",
-        "valueFrom": "arn:aws:ssm:${region}:${aws_account_id}:parameter/${name}/${environment}/KEYCLOAK_PASSWORD"
-      }
     ],
     "memory": ${container_memory_limit},
     "memoryReservation": ${container_memory_reserved},

@@ -227,6 +227,8 @@ module "ecs" {
     log_group                 = aws_cloudwatch_log_group.app.name
     name                      = var.name
     region                    = var.region
+    db_password               = random_password.db_password.result
+    keycloak_password         = random_password.keycloak_password.result
   })
   alb_security_group                 = module.alb.security_group_id
   attributes                         = ["svc"]
@@ -269,7 +271,7 @@ resource "aws_security_group_rule" "jgroups" {
 ######################################################################
 
 module "rds_cluster" {
-  source                = "git::https://github.com/cloudposse/terraform-aws-rds-cluster.git?ref=tags/0.50.2"
+  source                = "git::https://github.com/teamautologg/terraform-aws-rds-cluster"
   admin_password        = random_password.db_password.result
   admin_user            = "keycloak"
   allowed_cidr_blocks   = var.db_allowed_cidr_blocks

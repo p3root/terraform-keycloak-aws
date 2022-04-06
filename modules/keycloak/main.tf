@@ -251,7 +251,7 @@ module "ecs" {
   health_check_grace_period_seconds  = 600
   ignore_changes_task_definition     = false
   name                               = module.label.id
-  subnet_ids                         = var.private_subnet_ids
+  subnet_ids                         = var.public_subnet_ids
   tags                               = module.label.tags
   task_cpu                           = var.container_cpu_units
   task_memory                        = var.container_memory_limit

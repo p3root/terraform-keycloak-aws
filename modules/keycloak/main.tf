@@ -46,7 +46,7 @@ resource "aws_ssm_parameter" "keycloak_password" {
 ######################################################################
 
 module "alb" {
-  source                                  = "git::https://github.com/cloudposse/terraform-aws-alb.git?ref=tags/0.33.1"
+  source                                  = "git::https://github.com/cloudposse/terraform-aws-alb.git?ref=tags/0.36.0"
   alb_access_logs_s3_bucket_force_destroy = var.alb_destroy_log_bucket
   attributes                              = ["alb"]
   certificate_arn                         = var.alb_certificate_arn

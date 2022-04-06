@@ -269,7 +269,7 @@ resource "aws_security_group_rule" "jgroups" {
 ######################################################################
 
 module "rds_cluster" {
-  source                = "git::https://github.com/cloudposse/terraform-aws-rds-cluster.git?ref=tags/0.49.2"
+  source                = "git::https://github.com/cloudposse/terraform-aws-rds-cluster.git?ref=tags/0.50.2"
   admin_password        = random_password.db_password.result
   admin_user            = "keycloak"
   allowed_cidr_blocks   = var.db_allowed_cidr_blocks

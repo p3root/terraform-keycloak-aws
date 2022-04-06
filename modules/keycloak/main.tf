@@ -257,6 +257,7 @@ module "ecs" {
   task_memory                        = var.container_memory_limit
   use_alb_security_group             = true
   vpc_id                             = var.vpc_id
+  assign_public_ip                   = true
 
   ecs_load_balancers = [
     {

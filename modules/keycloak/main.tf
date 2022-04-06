@@ -240,8 +240,6 @@ module "ecs" {
     log_group                 = aws_cloudwatch_log_group.app.name
     name                      = var.name
     region                    = var.region
-    db_password               = random_password.db_password.result
-    keycloak_password         = random_password.keycloak_password.result
   })
   alb_security_group                 = module.alb.security_group_id
   attributes                         = ["svc"]

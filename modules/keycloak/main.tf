@@ -172,6 +172,19 @@ resource "aws_vpc_endpoint" "ssm" {
   vpc_id              = var.vpc_id
 }
 
+
+resource "aws_vpc_endpoint" "secretsmanager" {
+  count               = var.internal ? 1 : 0
+  auto_accept         = true
+  private_dns_enabled = true
+  security_group_ids  = [aws_security_group.vpc_endpoints.id]
+  service_name        = "com.amazonaws.${var.region}.secretsmanager"
+  subnet_ids          = var.private_subnet_ids
+  tags                = module.label.tags
+  vpc_endpoint_type   = "Interface"
+  vpc_id              = var.vpc_id
+}
+
 resource "aws_vpc_endpoint" "ssm_messages" {
   count               = var.internal ? 1 : 0
   auto_accept         = true

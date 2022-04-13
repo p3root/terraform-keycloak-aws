@@ -32,7 +32,7 @@ textarea.pf-c-form-control {
 }
 
 .pf-c-form-control:hover, .pf-c-form-control:focus {
-    border-bottom-color: #0066CC;
+    border-bottom-color: #1ea0ef;
     border-bottom-color: var(--pf-global--primary-color--100);
     border-bottom-width: 2px;
     border-bottom-width: var(--pf-global--BorderWidth--md);
@@ -149,7 +149,7 @@ textarea.pf-c-form-control {
 /* default - IE compatibility */
 .pf-m-primary {
     color: #FFFFFF;
-    background-color: #0066CC;
+    background-color: #1ea0ef;
     background-color: var(--pf-global--primary-color--100);
 }
 
@@ -218,7 +218,7 @@ a#kc-current-locale-link::after {
 div.kc-logo-text {
     background-image: url(../img/keycloak-logo-text.png);
     background-repeat: no-repeat;
-    height: 63px;
+    height: 130px;
     width: 300px;
     margin: 0 auto;
 }
@@ -661,7 +661,7 @@ ul#kc-totp-supported-apps {
     padding: 0 20px;
     max-width: 500px;
     border-top: 4px solid;
-    border-color: #0066CC; /* default - IE compatibility */
+    border-color: #1ea0ef; /* default - IE compatibility */
     border-color: var(--pf-global--primary-color--100);
 }
 

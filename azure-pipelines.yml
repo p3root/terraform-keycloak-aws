@@ -56,3 +56,9 @@ stages:
               $(DOCKER_REPOSITORY):$(Build.BuildId)
               $(DOCKER_REPOSITORY):$(Build.BuildNumber)
               $(DOCKER_REPOSITORY):latest
+        - task: Docker@2
+          inputs:
+            repository: $(DOCKER_REPOSITORY)
+            command: 'push'
+            tags: $(DOCKER_REPOSITORY):latest
+              

@@ -39,8 +39,8 @@ stages:
           displayName: Build an image
           inputs:
             command: build
-            buildContext: $(Build.SourcesDirectory)/build/keycloack
-            dockerfile: '$(Build.SourcesDirectory)/build/keycloack/Dockerfile'
+            buildContext: $(Build.SourcesDirectory)/build/keycloak
+            dockerfile: '$(Build.SourcesDirectory)/build/keycloak/Dockerfile'
             tags: |
               autologgids-dev
               $(DOCKER_REPOSITORY):$(Build.BuildId)

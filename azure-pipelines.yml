@@ -39,9 +39,10 @@ stages:
         - task: Bash@3
           displayName: 'Build theme'
           inputs:
-            workingDirectory:  build\keycloak
+            workingDirectory:  build/keycloak
             targetType: 'inline'
             script: |
+              chmod 755 package.sh
               ./package.sh autologg
 
         - task: Docker@2
@@ -51,7 +52,17 @@ stages:
             buildContext: $(Build.SourcesDirectory)/build/keycloak
             dockerfile: '$(Build.SourcesDirectory)/build/keycloak/Dockerfile'
             tags: |
-              autologgids-dev
               $(DOCKER_REPOSITORY):$(Build.BuildId)
               $(DOCKER_REPOSITORY):$(Build.BuildNumber)
               $(DOCKER_REPOSITORY):latest
+            arguments: -t $(DOCKER_REPOSITORY):$(Build.BuildId) -t $(DOCKER_REPOSITORY):latest -t $(DOCKER_REPOSITORY):$(Build.BuildNumber)
+        - task: Docker@2
+          inputs:
+            repository: $(DOCKER_REPOSITORY)
+            command: 'push'
+            tags: | 
+              latest
+              $(Build.BuildId)
+              $(Build.BuildNumber)
+
+              

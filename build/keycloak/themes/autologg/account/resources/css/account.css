@@ -29,7 +29,7 @@ header .navbar {
 
 .navbar-pf .navbar-utility {
 	right: 20px;
-    top: -30px;
+    top: -34px;
     font-size: 12px;
 }
 
@@ -38,19 +38,6 @@ header .navbar {
     padding-bottom: 12px;
     padding-top: 11px;
     border-left: medium none;
-}
-
-.navbar-pf {
-    border: none;
-    padding: 5px;
-}
-
-.navbar-pf .navbar-header {
-    border: none;
-}
-
-.bs-content {
-    background-color: #fff;
 }
 
 .container {
@@ -73,7 +60,7 @@ header .navbar {
 /* Sidebar */
 
 .bs-sidebar {
-    background-color: #fff;
+    background-color: #f9f9f9;
     padding-top: 44px;
     padding-right: 0;
     padding-left: 0;
@@ -103,6 +90,14 @@ header .navbar {
     text-decoration: none;
     color: #777777;
     border-right: 2px solid #aaa;
+}
+.bs-sidebar ul li.active a {
+    background-color: #c7e5f0;
+    border-color: #56bae0;
+    font-weight: bold;
+    background-image: url(../img/icon-sidebar-active.png);
+    background-repeat: no-repeat;
+    background-position: right center;
 }
 
 .bs-sidebar ul li.active a:hover {
@@ -279,70 +274,4 @@ hr + .form-horizontal {
     font-size: 16px;
     padding: 10px;
     margin: 50px 0;
-}
-
-.navbar-header .container {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-header .container img {
-    max-height: 24px;
-    max-width: 24px;
-}
-
-.no-image {
-    background-image: none;
-}
-
-/* =======================================
-            PROJECT COLOURS
-   ======================================= */
-
-/* ---------------------------------------
-            PRIMARY COLOUR
-   --------------------------------------- */
-
-a {
-    color: #1ea0ef;
-}
-
-a:hover {
-    color: #1ea0ef;
-}
-
-input:hover, input:focus {
-    border-color:#1ea0ef !important;
-    box-shadow: none !important;
-}
-
-.project-primary-color {
-    color: #1ea0ef !important;
-}
-
-.project-primary-color-background {
-    background-color: #1ea0ef !important;
-}
-
-.project-primary-color-border {
-   border-color: #1ea0ef !important;
-}
-
-.bs-sidebar ul li.active a {
-    background-color: #1ea0ef;
-    color: #fff !important;
-    font-weight: bold;
-}
-
-.navbar-pf .navbar-utility li a:hover {
-    background-color: #1ea0ef !important;
-    text-decoration: underline !important;
-}
-
-/* ---------------------------------------
-            ON PRIMARY COLOUR
-   --------------------------------------- */
-
-.project-on-primary-color {
-    color: #fff !important;
 }

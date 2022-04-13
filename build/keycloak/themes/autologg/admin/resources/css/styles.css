@@ -190,9 +190,70 @@ th.w-40 {
     height: 26px;
 }
 
+.select2-container-single {
+    padding: 0;
+    margin: 0;
+}
+
+.select2-container-single .form-group {
+    width: 100%;
+    margin: 0;
+}
+
+.select2-container-single .form-group .input-group {
+    width: 100%;
+}
+
 /*********** html select ********/
 .overflow-select {
     overflow: auto;
+}
+
+
+/*********** New Menu ***********/
+
+
+.sidebar-pf-left{
+  background: #292e34;
+}
+
+.sidebar-pf .nav-pills > li a i, .sidebar-pf .nav-pills > li a span{
+  color:  #72767b;
+  display: inline-block;
+  margin-right: 10px;
+}
+.sidebar-pf .nav-pills > li > a{
+  color: #dbdada;
+  padding: 0px 20px 0 30px!important;
+  line-height: 30px;
+  border-left-width: 12px;
+  border-left-style:  solid;
+  border-left-color: #292e34;
+  margin-left: -6px;
+}
+
+.sidebar-pf .nav-pills > li > a:hover{
+  background: #393f44;
+  border-color:#292e34;
+  border-left-color: #393f44;
+  color: #fff;
+}
+
+.sidebar-pf .nav-pills > li > a:after{
+  display: none!important;
+}
+
+
+.sidebar-pf .nav-pills > li.active > a {
+  color: #fff;
+  background: #393f44!important;
+  border-bottom: 1px solid #000!important;
+  border-top: 1px solid #000!important;
+  border-left-color: #39a5dc!important;
+}
+
+.sidebar-pf .nav-pills > li.active a i, .sidebar-pf .nav-pills > li.active a span{
+  color: #39a5dc;
 }
 
 /*********** Realm selector ***********/
@@ -273,13 +334,8 @@ th.w-40 {
   width: 148px;
 }
 
-.navbar-pf .navbar-utility > li > a{
-  padding: 22px 30px 23px 40px!important;
-}
-/* @media (min-width: 768px) */
-.navbar-pf .navbar-utility li.dropdown > .dropdown-toggle .pficon-user {
-  top: 22px;
-  left:20px;
+.navbar-pf .navbar-utility .dropdown-toggle {
+    padding: 23px !important;
 }
 
 .clickable {
@@ -311,6 +367,13 @@ h1 i {
 .kc-action-cell:hover {
     background-color: #eeeeee;
     background-image: none;
+}
+
+.kc-action-cell-disabled {
+    background-color: #fafafa;
+    color: #8b8d8f;
+    background-image: none;
+    cursor: not-allowed;
 }
 
 .kc-sorter span {
@@ -364,6 +427,10 @@ table.kc-authz-table-expanded {
   font-size: 14px;
 }
 
+.input-map input.form-control {
+  width: 50%;
+}
+
 /* Deactivation styles for user-group membership tree models */
 
 div[tree-model] li .deactivate {
@@ -377,100 +444,62 @@ div[tree-model] li .deactivate_selected {
     padding: 1px 5px;
 }
 
+/* search highlighting */
 
-/* =======================================
-            PROJECT COLOURS
-   ======================================= */
-
-/* ---------------------------------------
-            PRIMARY COLOUR
-   --------------------------------------- */
-
-a {
-    color: #1ea0ef;
+div[tree-model] li .highlight {
+    background-color: #aaddff;
 }
 
-a:hover {
-    color: #1ea0ef;
+/* Manage credentials */
+table.credentials-table {
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-input:hover, input:focus {
-    border-color:#1ea0ef !important;
-    box-shadow: none !important;
+table.credentials-table td {
+    vertical-align: middle !important;
 }
 
-.project-primary-color {
-    color: #1ea0ef !important;
+table.credentials-table input[type='text'] {
+    width: 100%;
 }
 
-.project-primary-color-background {
-    background-color: #1ea0ef !important;
+td.credential-arrows-cell {
+    width: 75px;
 }
 
-.project-primary-color-border {
-   border-color: #1ea0ef !important;
+td.credential-label-cell {
+    padding: 5px !important;
 }
 
-/* ---------------------------------------
-            ON PRIMARY COLOUR
-   --------------------------------------- */
-
-.project-on-primary-color {
-    color: #fff !important;
+td.credential-action-cell {
+    padding: 0px !important;
 }
 
-/*********** New Menu ***********/
-
-
-.sidebar-pf-left{
-    background: #292e34;
-  }
-
-  .sidebar-pf .nav-pills > li a i, .sidebar-pf .nav-pills > li a span{
-    color:  #fff;
-    display: inline-block;
-    margin-right: 10px;
-  }
-  .sidebar-pf .nav-pills > li > a{
-    color: #fff;
-    padding: 0px 20px 0 30px!important;
-    line-height: 30px;
-    margin-left: -6px;
-  }
-
-  .sidebar-pf .nav-pills > li > a:hover{
-    background: #fff !important;
-    border-color: #fff !important;
-    color: #1ea0ef !important;
-  }
-
-  .sidebar-pf .nav-pills > li > a:hover span {
-    color: #1ea0ef !important;
-  }
-
-  .sidebar-pf .nav-pills > li > a:after{
-    display: none!important;
-  }
-
-
-  .sidebar-pf .nav-pills > li.active > a {
-    color: #1ea0ef;
-    background: #fff !important;
-    border-color: #fff !important;
-  }
-
-  .sidebar-pf .nav-pills > li.active a i, .sidebar-pf .nav-pills > li.active a span{
-    color: #1ea0ef;
-  }
-
-  .sidebar-pf .nav-pills > li > a .fa {
-      color: #fff;
-  }
-
-  .sidebar-pf .nav-pills > li > a:hover .fa {
-    color: #1ea0ef;
+td.credential-action-cell div.kc-action-cell {
+    width: 100%;
+    height: 36px;
+    line-height: 34px;
 }
 
-.sidebar-pf .nav-category h2 {
-    color: #fff !important;
+td.credential-action-cell.expanded div.kc-action-cell {
+    border-bottom: 1px solid #d1d1d1;
 }
+
+table.credential-data-table td {
+    word-break: break-all;
+}
+
+table.credential-data-table tr:first-child td {
+    border-top: 0;
+}
+
+table.credential-data-table td:first-child {
+    width: 150px;
+}
+
+table.credential-data-table td.key {
+    text-align: right;
+    font-weight: bold;
+}
+

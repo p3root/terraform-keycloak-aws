@@ -76,7 +76,7 @@
                     <span ng-if="!policy.details || !policy.details.loaded" class="fa fa-angle-right"></span>
                     <span ng-if="policy.details && policy.details.loaded" class="fa fa-angle-right fa-angle-down"></span>
                 </td>
-                <td><a href="#/realms/{{realm.realm}}/clients/{{client.id}}/authz/resource-server/policy/{{policy.type}}/{{policy.id}}">{{policy.name}}</a></td>
+                <td><a href="#/realms/{{realm.realm}}/clients/{{client.id}}/authz/resource-server/policy/{{policy.type.endsWith('.js') ? 'js': policy.type}}/{{policy.id}}">{{policy.name}}</a></td>
                 <td>{{policy.description}}</td>
                 <td>{{policy.type}}</td>
                 <td align="center">
@@ -95,7 +95,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <dl class="dl-horizontal">
-                                    <dt>Dependent Policies</dt>
+                                    <dt>Dependent Permissions</dt>
                                     <dd>
                                         <span data-ng-show="policy.dependentPolicies && !policy.dependentPolicies.length">{{:: 'authz-no-policies-available' | translate}}</span>
                                         <span ng-repeat="dep in policy.dependentPolicies" data-ng-show="policy.dependentPolicies.length > 0"><a href="#/realms/{{realm.realm}}/clients/{{client.id}}/authz/resource-server/{{dep.type == 'scope' || dep.type == 'resource' ? 'permission' : 'policy'}}/{{dep.type}}/{{dep.id}}">{{dep.name}}</a>{{$last ? '' : ', '}}</span>

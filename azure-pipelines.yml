@@ -39,7 +39,7 @@ stages:
         - task: Bash@3
           displayName: 'Build theme'
           inputs:
-            workingDirectory:  build\keycloak
+            workingDirectory:  build/keycloak
             targetType: 'inline'
             script: |
               ./package.sh autologg

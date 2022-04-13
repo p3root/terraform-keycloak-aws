@@ -39,9 +39,9 @@ stages:
         - task: Bash@3
           displayName: 'Build theme'
           inputs:
+            workingDirectory:  build\keycloak
             targetType: 'inline'
             script: |
-              cd build\keycloak
               ./package.sh autologg
 
         - task: Docker@2

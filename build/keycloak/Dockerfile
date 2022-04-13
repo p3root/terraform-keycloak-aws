@@ -24,8 +24,6 @@ COPY profile.properties /opt/jboss/keycloak/standalone/configuration/profile.pro
 RUN mkdir -p /opt/jboss/keycloak/themes
 COPY themes/ /opt/jboss/keycloak/themes/
 
-COPY deployments/ /opt/jboss/keycloak/standalone/deployments
-
 # Clustering
 ENV JGROUPS_DISCOVERY_PROTOCOL JDBC_PING
 ENV JGROUPS_DISCOVERY_PROPERTIES datasource_jndi_name=java:jboss/datasources/KeycloakDS
@@ -39,6 +37,7 @@ ENV PROXY_ADDRESS_FORWARDING true
 # https://github.com/keycloak/keycloak-containers/issues/344
 # https://logging.apache.org/log4j/log4j-2.14.1/manual/configuration.html#SystemProperties
 ENV FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS true
+ENV KEYCLOAK_WELCOME_THEME autologg
 
 EXPOSE 7600
 ENTRYPOINT [ "/opt/jboss/tools/docker-entrypoint.sh", "-b", "0.0.0.0", "--server-config", "standalone-ha.xml" ]

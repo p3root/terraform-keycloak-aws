@@ -60,4 +60,5 @@ stages:
           inputs:
             repository: $(DOCKER_REPOSITORY)
             command: 'push'
+            tags: latest
               

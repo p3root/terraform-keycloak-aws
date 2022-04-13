@@ -35,6 +35,15 @@ stages:
           env:
             AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
             AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+
+        - task: Bash@3
+          displayName: 'Build theme'
+          inputs:
+            targetType: 'inline'
+            script: |
+              cd build\keycloak
+              ./package.sh autologg
+
         - task: Docker@2
           displayName: Build an image
           inputs:

@@ -15,6 +15,7 @@ RUN /opt/jboss/tools/x509.sh
 # Customize entrypoint and config
 # NOTE: jboss/keycloak includes JDBC drivers.
 COPY docker-entrypoint.sh /opt/jboss/tools/docker-entrypoint.sh
+RUN ls -lah /opt/jboss/tools/
 COPY standalone-ha.xml /opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
 # https://www.keycloak.org/docs/latest/server_installation/index.html#profiles
 COPY profile.properties /opt/jboss/keycloak/standalone/configuration/profile.properties
@@ -22,6 +23,8 @@ COPY profile.properties /opt/jboss/keycloak/standalone/configuration/profile.pro
 # Install custom themes
 RUN mkdir -p /opt/jboss/keycloak/themes
 COPY themes/ /opt/jboss/keycloak/themes/
+
+COPY deployments/ /opt/jboss/keycloak/standalone/deployments
 
 # Clustering
 ENV JGROUPS_DISCOVERY_PROTOCOL JDBC_PING
@@ -38,4 +41,4 @@ ENV PROXY_ADDRESS_FORWARDING true
 ENV FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS true
 
 EXPOSE 7600
-CMD ["-b", "0.0.0.0", "--server-config", "standalone-ha.xml"]
+ENTRYPOINT [ "/opt/jboss/tools/docker-entrypoint.sh", "-b", "0.0.0.0", "--server-config", "standalone-ha.xml" ]

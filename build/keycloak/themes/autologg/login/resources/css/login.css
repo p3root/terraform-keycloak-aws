@@ -8,6 +8,10 @@
     --pf-global--primary-color--200: #1ea0ef;
     --pf-global--BorderColor--200: #1ea0ef;
     --pf-global--BorderColor--300: #1ea0ef;
+    --pf-global--active-color--100: #1ea0ef;
+    --pf-global--primary-color--dark-100: #1ea0ef;
+    --pf-global--link--Color--dark: #1ea0ef;
+    
 }
 
 .login-pf {

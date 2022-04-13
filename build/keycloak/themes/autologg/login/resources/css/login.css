@@ -6,6 +6,8 @@
     --pf-global--link--Color--hover: #004080;
     --pf-global--primary-color--100: #1ea0ef;
     --pf-global--primary-color--200: #1ea0ef;
+    --pf-global--BorderColor--200: #1ea0ef;
+    --pf-global--BorderColor--300: #1ea0ef;
 }
 
 .login-pf {

@@ -52,7 +52,6 @@ stages:
             buildContext: $(Build.SourcesDirectory)/build/keycloak
             dockerfile: '$(Build.SourcesDirectory)/build/keycloak/Dockerfile'
             tags: |
-              autologgids-dev
               $(DOCKER_REPOSITORY):$(Build.BuildId)
               $(DOCKER_REPOSITORY):$(Build.BuildNumber)
               $(DOCKER_REPOSITORY):latest
@@ -60,5 +59,9 @@ stages:
           inputs:
             repository: $(DOCKER_REPOSITORY)
             command: 'push'
-            tags: latest
+            tags: | 
+              latest
+              $(Build.BuildId)
+              $(Build.BuildNumber)
+
               

@@ -18,6 +18,10 @@ variables:
     value: '$(Build.BuildId)'
   - name: DOCKER_REPOSITORY
     value: $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/autologgids-dev
+  - name: DOCKER_REPOSITORY_STAGING
+    value: $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/autologgids-staging
+  - name: DOCKER_REPOSITORY_PROD
+    value: $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/autologgids-prod
 
 stages:
   - stage: Build
@@ -55,7 +59,10 @@ stages:
               $(DOCKER_REPOSITORY):$(Build.BuildId)
               $(DOCKER_REPOSITORY):$(Build.BuildNumber)
               $(DOCKER_REPOSITORY):latest
-            arguments: -t $(DOCKER_REPOSITORY):$(Build.BuildId) -t $(DOCKER_REPOSITORY):latest -t $(DOCKER_REPOSITORY):$(Build.BuildNumber)
+              $(DOCKER_REPOSITORY_STAGING):$(Build.BuildId)
+              $(DOCKER_REPOSITORY_STAGING):$(Build.BuildNumber)
+              $(DOCKER_REPOSITORY_STAGING):latest
+            arguments: -t $(DOCKER_REPOSITORY):$(Build.BuildId) -t $(DOCKER_REPOSITORY):latest -t $(DOCKER_REPOSITORY):$(Build.BuildNumber) -t $(DOCKER_REPOSITORY_STAGING):$(Build.BuildId) -t $(DOCKER_REPOSITORY_STAGING):latest -t $(DOCKER_REPOSITORY_STAGING):$(Build.BuildNumber)
         - task: Docker@2
           inputs:
             repository: $(DOCKER_REPOSITORY)
@@ -64,5 +71,13 @@ stages:
               latest
               $(Build.BuildId)
               $(Build.BuildNumber)
+        - task: Docker@2
+          inputs:
+            repository: $(DOCKER_REPOSITORY_STAGING)
+            command: 'push'
+            tags: | 
+              latest
+              $(Build.BuildId)
+              $(Build.BuildNumber)              
 
               

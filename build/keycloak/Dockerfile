@@ -1,4 +1,4 @@
-FROM jboss/keycloak:16.1.1
+FROM quay.io/keycloak/keycloak:18.0.2-legacy
 
 USER root
 
